@@ -9,7 +9,15 @@ class SplashViewBody extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: [Image.asset(AssetsData.logo)],
+      children: [
+        Image.asset(AssetsData.logo),
+        const SizedBox(height: 4),
+        const Text(
+          'Read Free Books',
+          style: TextStyle(fontSize: 24),
+          textAlign: TextAlign.center,
+        ),
+      ],
     );
   }
 }
