@@ -14,18 +14,18 @@ class HomeViewBody extends StatelessWidget {
         SliverToBoxAdapter(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
+            children: const [
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 30.0),
+                padding: EdgeInsets.symmetric(horizontal: 30.0),
                 child: CustomeAppBar(),
               ),
               FeaturedBoxListView(),
               SizedBox(height: 50),
-              const Padding(
+              Padding(
                 padding: EdgeInsets.symmetric(horizontal: 30.0),
                 child: Text('Best Seller', style: Styles.textStyle18),
               ),
-              const SizedBox(height: 20),
+              SizedBox(height: 20),
             ],
           ),
         ),
