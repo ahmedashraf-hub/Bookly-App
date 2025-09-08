@@ -1,6 +1,6 @@
 import 'package:bookly/core/utils/styles.dart';
 import 'package:bookly/features/home/presentation/views/widgets/best_seller_list_view.dart';
-import 'package:bookly/features/home/presentation/views/widgets/custome_app_bar.dart';
+import 'package:bookly/features/home/presentation/views/widgets/custom_app_bar.dart';
 import 'package:bookly/features/home/presentation/views/widgets/featured_books_list_view.dart';
 import 'package:flutter/material.dart';
 
@@ -18,7 +18,7 @@ class HomeViewBody extends StatelessWidget {
             children: const [
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 30.0),
-                child: CustomeAppBar(),
+                child: CustomAppBar(),
               ),
               FeaturedBooksListView(),
               SizedBox(height: 50),
