@@ -11,7 +11,7 @@ class BookRating extends StatelessWidget {
   });
 
   final MainAxisAlignment mainAxisAlignment;
-  final String rating;
+  final dynamic rating;
   final int count;
 
   @override
