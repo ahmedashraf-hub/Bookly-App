@@ -1,11 +1,14 @@
 import 'package:bookly/core/utils/styles.dart';
+import 'package:bookly/features/home/data/models/book_model/book_model.dart';
 import 'package:bookly/features/home/presentation/views/widgets/book_rating.dart';
 import 'package:bookly/features/home/presentation/views/widgets/books_action.dart';
 import 'package:bookly/features/home/presentation/views/widgets/custom_book_image.dart';
 import 'package:flutter/material.dart';
 
 class BookDetailsSection extends StatelessWidget {
-  const BookDetailsSection({super.key});
+  const BookDetailsSection({super.key, required this.book});
+
+  final BookModel book;
 
   @override
   Widget build(BuildContext context) {
@@ -15,17 +18,20 @@ class BookDetailsSection extends StatelessWidget {
         Padding(
           padding: EdgeInsets.symmetric(horizontal: width * 0.2),
           child: CustomBookImage(
-            imageUrl:
-                'https://www.google.com/imgres?q=image%20to%20text%20flutter&imgurl=https%3A%2F%2Ffiles.codingninjas.in%2Farticle_images%2Fflutter-text-0-1653286480.jpg&imgrefurl=https%3A%2F%2Fwww.naukri.com%2Fcode360%2Flibrary%2Fflutter-text&docid=MkOdpCpiXwfbgM&tbnid=NTSIQ1XMxKMtGM&vet=12ahUKEwiGzvyEhMePAxXsVKQEHUEIEhoQM3oECD8QAA..i&w=1280&h=720&hcb=2&ved=2ahUKEwiGzvyEhMePAxXsVKQEHUEIEhoQM3oECD8QAA',
+            imageUrl: book.volumeInfo.imageLinks?.thumbnail ?? '',
           ),
         ),
         const SizedBox(height: 43),
-        const Text('The Jungle Book', style: Styles.textStyle30),
+        Text(
+          book.volumeInfo.title!,
+          style: Styles.textStyle30.copyWith(fontWeight: FontWeight.bold),
+          textAlign: TextAlign.center,
+        ),
         const SizedBox(height: 6),
         Opacity(
           opacity: 0.7,
           child: Text(
-            'Rudyard Kipling',
+            book.volumeInfo.authors?[0] ?? '',
             style: Styles.textStyle18.copyWith(
               fontStyle: FontStyle.italic,
               fontWeight: FontWeight.w500,
@@ -35,8 +41,8 @@ class BookDetailsSection extends StatelessWidget {
         const SizedBox(height: 18),
         BookRating(
           mainAxisAlignment: MainAxisAlignment.center,
-          rating: '5',
-          count: 250,
+          rating: book.volumeInfo.maturityRating ?? 0,
+          count: book.volumeInfo.pageCount ?? 0,
         ),
         const SizedBox(height: 37),
         const BooksAction(),
